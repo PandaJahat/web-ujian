@@ -79,3 +79,15 @@
   <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+  @include('plugins.icheck')
+
+  @push('scripts')
+    <script>
+    $(function () {
+      $('#modal-create').find('input[type="radio"]').iCheck({        
+        radioClass: 'iradio_flat-blue'
+      })
+    })
+    </script>
+  @endpush
