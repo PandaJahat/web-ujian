@@ -16,17 +16,6 @@ mix.scripts([
         'vendor/bower_components/admin-lte/dist/js/adminlte.min.js',
 ], 'public/js/user/ujian.js');
 
-// User Plugin CSS
-mix.styles([
-        'vendor/bower_components/admin-lte/plugins/iCheck/square/blue.css'        
-], 'public/css/user/plugin.css');
-
-// User Plugin JS
-mix.scripts([
-        'vendor/bower_components/admin-lte/plugins/iCheck/icheck.min.js'        
-], 'public/js/user/plugin.js');
-
-
 // Admin CSS
 mix.styles([
         'vendor/bower_components/bootstrap/dist/css/bootstrap.min.css',                
@@ -45,13 +34,26 @@ mix.scripts([
 
 // ------------------- Plug - in ----------------------------------------------
 
+cssPath = 'public/css/plugin/';
+jsPath = 'public/js/plugin/';
+
 // DataTables CSS
 mix.styles([
         'vendor/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'        
-], 'public/css/plugin/datatables.css');
+], cssPath + 'datatables.css');
 
 // DataTables JS
 mix.scripts([
         'vendor/bower_components/datatables.net/js/jquery.dataTables.min.js',
         'vendor/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'
-], 'public/js/plugin/datatables.js');
+], jsPath + 'datatables.js');
+
+// ICheck CSS
+mix.styles([
+        'vendor/bower_components/admin-lte/plugins/iCheck/all.css'        
+], cssPath + 'icheck/icheck.css');
+
+// ICheck Plugin JS
+mix.scripts([
+        'vendor/bower_components/admin-lte/plugins/iCheck/icheck.min.js'        
+], jsPath + 'icheck.js');
