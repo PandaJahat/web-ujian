@@ -1,0 +1,8 @@
+{
+  "name": "Ujian",
+  "description": "Ujian Seleksi Masuk UNAKI",
+  "dependencies": {
+    "admin-lte": "adminlte#^2.4.3",
+    "toastr": "^2.1.3"
+  }
+}

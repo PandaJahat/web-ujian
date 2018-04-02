@@ -1,0 +1,18 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+/public/adminlte
+.vscode
+/public/img/questions/*
+
+# bower | bower install adminlte
+/resources/assets/bower

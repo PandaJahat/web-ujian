@@ -1,0 +1,10 @@
+{
+    "/css/user/ujian.css": "/css/user/ujian.css",
+    "/js/user/ujian.js": "/js/user/ujian.js",
+    "/css/user/plugin.css": "/css/user/plugin.css",
+    "/js/user/plugin.js": "/js/user/plugin.js",
+    "/css/admin/ujian.css": "/css/admin/ujian.css",
+    "/js/admin/ujian.js": "/js/admin/ujian.js",
+    "/css/plugin/datatables.css": "/css/plugin/datatables.css",
+    "/js/plugin/datatables.js": "/js/plugin/datatables.js"
+}
