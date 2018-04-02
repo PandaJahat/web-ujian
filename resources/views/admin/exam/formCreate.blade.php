@@ -61,7 +61,18 @@
 
 @push('scripts')
 <script type="text/javascript">
-    $("#start_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-    $("#end_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $("#start_datetime").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii',
+      startDate: new Date()
+      })
+    
+    $("#end_datetime").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii',
+      startDate: new Date()
+      })
+
+    $("#start_datetime").change(function () {
+      $("#end_datetime").datetimepicker('setStartDate', this.value)      
+    })
 </script>
 @endpush
