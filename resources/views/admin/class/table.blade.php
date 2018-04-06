@@ -6,8 +6,8 @@
   <thead>
       <tr>
           <th>No</th>
-          <th>Kode Kelas</th>
-          <th>Nama Kelas</th>
+          <th>Kode Ruang</th>
+          <th>Nama Ruang</th>
           <th>Keterangan</th>
           <th>Dibuat</th>
           <th>Diubah</th>
@@ -27,7 +27,7 @@
           processing: true,
           serverSide: true,
           language:{
-            emptyTable:'belum ada kelas untuk saat ini . . .'
+            emptyTable:'belum ada ruang untuk saat ini . . .'
           },
           ajax: '{!! route('admin.class.data') !!}',
           order: [[ 4, 'desc' ]],

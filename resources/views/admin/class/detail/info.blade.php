@@ -1,6 +1,6 @@
 <div class="box box-primary">
   <div class="box-header with-border">
-    <h3 class="box-title">Detail Kelas</h3>
+    <h3 class="box-title">Detail Ruang</h3>
     <div class="box-tools pull-right">
       <button class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#modal-update">
         <i class="fa fa-pencil-square-o"></i> Ubah

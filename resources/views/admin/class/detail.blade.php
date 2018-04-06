@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-Kelas
+Ruang
 @endsection
 
 @section('pagetitle')
-Kelas: {{ $class->name }} <small>Detail lengkap kelas</small>
+Ruang: {{ $class->name }} <small>Detail lengkap ruang</small>
 @endsection
 
 @section('breadcrumb')
-  <li><a href="{{ route('admin.class') }}">Kelas</a></li>
+  <li><a href="{{ route('admin.class') }}">Ruang</a></li>
   <li class="active">Detail</li>
 @endsection
 
@@ -49,7 +49,7 @@ Kelas: {{ $class->name }} <small>Detail lengkap kelas</small>
           {{ method_field('DELETE') }}
           <input type="hidden" name="id" value="{{ $class->id }}">
           <button type="button" class="btn btn-danger" onclick="deleteClass()">
-            <i class="fa fa-trash"></i> Hapus Kelas
+            <i class="fa fa-trash"></i> Hapus Ruang
           </button>
         </form>
       </div>
@@ -76,7 +76,7 @@ Kelas: {{ $class->name }} <small>Detail lengkap kelas</small>
   function deleteClass() {
     swal({
       title: 'Apakah?',
-      text: "Anda yakin ingin menghapus Kelas ini ?",
+      text: "Anda yakin ingin menghapus Ruang ini ?",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -87,7 +87,7 @@ Kelas: {{ $class->name }} <small>Detail lengkap kelas</small>
       if (result.value) {
         swal({
           title: 'Berhasil!',
-          text: 'Kelas berhasil dihapus.',
+          text: 'Ruang berhasil dihapus.',
           type: 'success',
           timer: 1500,
           onOpen: () => {

@@ -35,7 +35,7 @@
       </li>
 
       <li class="{{ (Request::is('admin/class/*') || Request::is('admin/class')) ? 'active' : null }}">
-        <a href="{{ route('admin.class') }}"><i class="fa fa-folder-open"></i> <span>Kelas</span></a>
+        <a href="{{ route('admin.class') }}"><i class="fa fa-folder-open"></i> <span>Ruang</span></a>
       </li>
 
       <li class="{{ (Request::is('admin/exam/*') || Request::is('admin/exam')) ? 'active' : null }}">

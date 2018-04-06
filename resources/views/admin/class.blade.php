@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-Kelas
+Ruang
 @endsection
 
 @section('pagetitle')
-Kelas<small>Daftar lengkap kelas</small>
+Ruang<small>Daftar lengkap ruang</small>
 @endsection
 
 @section('breadcrumb')
-  <li><a href="{{ route('admin.class') }}">Kelas</a></li>
+  <li><a href="{{ route('admin.class') }}">Ruang</a></li>
   <li class="active">Daftar</li>
 @endsection
 
@@ -18,7 +18,7 @@ Kelas<small>Daftar lengkap kelas</small>
   <div class="box-header with-border">
     <h3 class="box-title">Tabel</h3>
     <div class="box-tools pull-right">
-      <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-create"><i class="fa fa-plus"></i> Tambah Kelas</button>
+      <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-create"><i class="fa fa-plus"></i> Tambah Ruang</button>
       <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
               title="Collapse">
         <i class="fa fa-minus"></i>
