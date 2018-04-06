@@ -32,6 +32,13 @@
 </div>
 
 <div class="form-group">
+  <label class="col-sm-2 control-label">Nilai Kelulusan</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Nilai batas untuk lulus ujian. . ." required  name="base_score" value="{{ old('base_score') }}">
+  </div>
+</div>
+
+<div class="form-group">
   <label class="col-sm-2 control-label">Waktu Mulai Ujian</label>
   <div class="col-sm-10">
     <div class="input-group">
@@ -75,4 +82,15 @@
       $("#end_datetime").datetimepicker('setStartDate', this.value)      
     })
 </script>
+@endpush
+
+@push('scripts')
+    <script>
+      $(function () {
+        $('input[name=base_score]').bind('keypress', function (e) {
+          return !(e.which != 8 && e.which != 0 &&
+            (e.which < 48 || e.which > 57) && e.which != 46);
+        })
+      })
+    </script>
 @endpush

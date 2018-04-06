@@ -33,6 +33,13 @@
 </div>
 
 <div class="form-group">
+  <label class="col-sm-2 control-label">Nilai Kelulusan</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" placeholder="Nilai batas untuk lulus ujian. . ." required name="base_score" value="{{ old('name', $exam->base_score) }}">
+  </div>
+</div>
+
+<div class="form-group">
   <label class="col-sm-2 control-label">Waktu Mulai Ujian</label>
   <div class="col-sm-10">
     <div class="input-group">

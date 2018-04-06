@@ -17,6 +17,7 @@ class CreateExamsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('detail')->nullable();
+            $table->integer('base_score')->unsigned();
             $table->timestamp('start_at')->nullable();
             $table->timestamp('stop_at')->nullable();
             $table->timestamps();
