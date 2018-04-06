@@ -1,0 +1,14 @@
+
+Todo:
+  Admin:
+    Class:
+      ☐ Ganti kata 'Kelas' dengan 'Ruang' @high
+    Exam:
+      ☐ Tambah kolom 'Batas Nilai Kelulusan' (Base Score) ke tabel exam @critical 
+      ☐ Input field (Base Score) pada form create dan form update @critical 
+      ☐ Tambahkan code simpan base score pada fungsi Insert dan Update pada ExamController @critical 
+    Faculty:
+      ☐ Form create yang berisi nama fakultas dan kode (optional) (semua: text) @low 
+    Program:
+      ☐ Form create yang berisi nama program (text), fakultas (dropdown), dan kode (optional) (text) @low 
+  
