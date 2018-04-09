@@ -13,6 +13,10 @@
   <li class="active">Daftar</li>
 @endsection
 
+@include('plugins.icheck')
+@include('plugins.ckeditor')
+@include('plugins.sweetalert2')
+
 @section('content')
   <!-- Default box -->
   <div class="box box-primary">

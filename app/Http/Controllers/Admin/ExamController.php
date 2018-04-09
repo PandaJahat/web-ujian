@@ -9,9 +9,11 @@ use Yajra\Datatables\Datatables;
 # Model
 use App\Exam;
 use App\Question;
+use App\Answer;
 
 # Request
 use App\Http\Requests\ExamRequest;
+use App\Http\Requests\QuestionRequest;
 
 class ExamController extends Controller
 {
@@ -94,8 +96,8 @@ class ExamController extends Controller
       })
       ->addColumn('action2', function($question){
         return '<button id="'.$question->id.'" onclick="detail(id)" class="btn btn-success btn-xs btn-block"><i class="glyphicon glyphicon-list-alt"></i> Detail</button>';
-      })
-      ->rawColumns(['action1', 'action2'])
+      })      
+      ->rawColumns(['action1', 'action2', 'text'])
       ->make(true);
     }
 
@@ -116,13 +118,46 @@ class ExamController extends Controller
       ->addColumn('remove', function($exam) use ($id){
         return '<button onclick="remove(\''.$id.'\', \''.$exam->question_id.'\')" class="btn btn-danger btn-xs btn-block"><i class="glyphicon glyphicon-remove"></i> Urungkan</button>';
       })
-      ->rawColumns(['detail', 'remove'])
+      ->addColumn('update', function($exam) {
+        return '<button id="'.$exam->question_id.'" onclick="updateQuestion(id)" class="btn btn-warning btn-xs btn-block"><i class="glyphicon glyphicon-pencil"></i> Ubah</button>';
+      })
+      ->rawColumns(['detail', 'remove', 'text', 'update'])
       ->make(true);
     }
 
     public function questionRemove(Request $request)
     {
       Exam::find($request->id)->questions()->detach(['question_id' => $request->question_id]);
+    }
+
+    public function questionCreate(QuestionRequest $request)
+    {
+      $question = new Question;
+      $question->text =  $request->text;
+      if (!empty($request->picture)) {
+        $imageName = time().'.'.request()->picture->getClientOriginalExtension();
+        request()->picture->move(public_path('img/questions'), $imageName);
+
+        $question->picture = $imageName;
+      }
+      $question->save();
+
+      $count = 1;
+      foreach ($request->answer_text as $value) {
+
+        $answer = new Answer;
+        $answer->text = $value;
+
+        if ($request->true==$count++) {
+          $answer->true = 1;
+        }
+
+        $question->answers()->save($answer);
+      }
+
+      Exam::find($request->exam_id)->questions()->attach(['question_id' => $question->id],['created_at' => now()]);
+
+      return redirect()->route('admin.exam.detail', ['id' => $request->exam_id]);
     }
 
     // END Question

@@ -26,12 +26,12 @@ class QuestionController extends Controller
       return Datatables::of($question)
       ->editColumn('text', function($question){ return substr($question->text,0,85); })
       ->addColumn('action1', function($question){
-        return '<button id="'.$question->id.'" onclick="update(id)" class="btn btn-warning btn-xs btn-block"><i class="glyphicon glyphicon-edit"></i> Ubah</button>';
+        return '<button id="'.$question->id.'" onclick="updateQuestion(id)" class="btn btn-warning btn-xs btn-block"><i class="glyphicon glyphicon-edit"></i> Ubah</button>';
       })
       ->addColumn('action2', function($question){
         return '<button id="'.$question->id.'" onclick="detail(id)" class="btn btn-success btn-xs btn-block"><i class="glyphicon glyphicon-list-alt"></i> Detail</button>';
       })
-      ->rawColumns(['action1', 'action2'])
+      ->rawColumns(['action1', 'action2', 'text'])
       ->make(true);
     }
 
@@ -66,7 +66,7 @@ class QuestionController extends Controller
     public function formUpdate(Request $request)
     {
       if ($request->ajax()) {
-        return view('admin.question.modalUpdate', [
+        return view('admin.question.formUpdate', [
           'question' => Question::find($request->id),
           'answers' => Question::find($request->id)->answers,
           'ch' => ['A', 'B', 'C', 'D'],
@@ -75,10 +75,10 @@ class QuestionController extends Controller
       }
     }
 
-    public function update(QuestionRequest $request, $id)
+    public function update(QuestionRequest $request)
     {
 
-      $question = Question::find($id);
+      $question = Question::find($request->id);
       $question->text =  $request->text;
       if (!empty($request->picture)) {
         $imageName = time().'.'.request()->picture->getClientOriginalExtension();
@@ -103,7 +103,7 @@ class QuestionController extends Controller
         $answer->save();
       }
 
-      return redirect()->route('admin.question');
+      return redirect()->back();
     }
 
     public function detail(Request $request)

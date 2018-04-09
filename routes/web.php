@@ -85,9 +85,9 @@ Route::prefix('admin')->group(function() {
         Route::get('/data', 'QuestionController@data')->name('admin.question.data');
 
         Route::post('/create', 'QuestionController@create')->name('admin.question.submit');
-        Route::post('/update', 'QuestionController@formUpdate')->name('admin.question.update');
+        Route::get('/update', 'QuestionController@formUpdate')->name('admin.question.update');
 
-        Route::patch('/{id}/update', 'QuestionController@update')->name('admin.question.update.submit');
+        Route::patch('/update', 'QuestionController@update')->name('admin.question.update.submit');
 
         Route::post('/detail', 'QuestionController@detail')->name('admin.question.detail');
 
@@ -106,14 +106,13 @@ Route::prefix('admin')->group(function() {
         Route::delete('/delete', 'ExamController@delete')->name('admin.exam.delete.submit');
 
         Route::prefix('{id}/question')->group(function() {
-          Route::get('/', 'ExamController@question')->name('admin.exam.question');
+          Route::get('/', 'ExamController@question')->name('admin.exam.question');          
+          Route::post('/', 'ExamController@questionCreate')->name('admin.exam.question.create.submit');
           Route::get('/data', 'ExamController@questionData')->name('admin.exam.question.data');
-
-          Route::post('/select', 'ExamController@questionSelect')->name('admin.exam.question.select');
-
-          Route::get('/list', 'ExamController@questionList')->name('admin.exam.question.list');
-
           Route::delete('/remove', 'ExamController@questionRemove')->name('admin.exam.question.remove');
+          
+          Route::get('/list', 'ExamController@questionList')->name('admin.exam.question.list');
+          Route::post('/select', 'ExamController@questionSelect')->name('admin.exam.question.select');          
         });
 
       });

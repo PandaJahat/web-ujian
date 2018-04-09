@@ -45,22 +45,7 @@
   </script>
 @endpush
 
-@push('scripts')
-  <script type="text/javascript">
-    function update(id) {
-      $.ajax({
-        type: "POST",
-        url: '{{ route('admin.question.update') }}',
-        data: {id:id, _token:'{{ csrf_token() }}'},
-        success: function(data) {
-          $("#modal").html(data);
-          $('#modal-update').modal('show');
-        },
-
-      });
-    }
-  </script>
-@endpush
+@include('admin.question.modalUpdate')
 
 @push('scripts')
   <script type="text/javascript">
@@ -77,42 +62,4 @@
       });
     }
   </script>
-@endpush
-
-@push('scripts')
-<script src="https://unpkg.com/sweetalert2@7.1.3/dist/sweetalert2.all.js"></script>
-<script type="text/javascript">
-  function deleteQuestion(id) {
-    swal({
-      title: 'Apakah?',
-      text: "Anda yakin ingin menghapus soal ujian ini ?",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, hapus!',
-      cancelButtonText: 'Tidak'
-    }).then((result) => {
-      if (result.value) {
-        $('#modal-detail').modal('hide') &&
-          $.post("{{ route('admin.question.delete') }}", {
-            id: id,
-            _token: '{{ csrf_token() }}',
-            _method: 'DELETE'
-          }, function () {
-            refreshTable();
-          }) &&
-          swal({
-            title: 'Berhasil!',
-            text: 'Soal ujian berhasil dihapus.',
-            type: 'success',
-            timer: 1500,
-            onOpen: () => {
-              swal.showLoading()
-            }
-          })
-      }
-    })
-  }
-</script>
 @endpush

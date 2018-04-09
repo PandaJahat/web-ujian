@@ -1,8 +1,8 @@
 <div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="box-title">Soal Ujian</h3>
-    <div class="box-tools pull-right">
-      <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Soal</a>
+    <div class="box-tools pull-right">      
+      @include('admin.exam.detail.question.create')
       <a href="{{ route('admin.exam.question', ['id' => $exam->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Pilih Soal</a>
       <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
               title="Collapse">
@@ -18,7 +18,8 @@
           <tr>
               <th>No.</th>
               <th>Soal</th>
-              <th>Dipilih Pada</th>
+              <th>Ditambahkan</th>
+              <th></th>
               <th></th>
               <th></th>
           </tr>
@@ -45,12 +46,28 @@
           },
           ajax: '{!! route('admin.exam.question.list', ['id' => $id]) !!}',
           order: [[ 2, 'desc' ]],
+          columnDefs: [
+            {
+              searchable: false,
+              orderable: false,
+              targets: [3, 4, 5, 0]
+            },
+            {
+              width: '5%',
+              targets: [0]
+            },
+            {
+              width: '10%',
+              targets: [3,4,5]
+            }
+          ],
           columns: [
               { data: 'DT_Row_Index', name: 'id', searchable:false },
               { data: 'text', name: 'questions.text' },
-              { data: 'created_at', name: 'exam_questions.created_at' },
-              { data: 'detail', name: 'detail', orderable: false, searchable:false },
-              { data: 'remove', name: 'remove', orderable: false, searchable:false },
+              { data: 'created_at', name: 'questions.created_at' },
+              { data: 'remove', name: 'remove' },
+              { data: 'detail', name: 'detail' },
+              { data: 'update', name: 'update' }
           ]
       });
   });
@@ -86,7 +103,6 @@
 @endpush
 
 @push('scripts')
-  <script src="https://unpkg.com/sweetalert2@7.1.3/dist/sweetalert2.all.js"></script>
   <script type="text/javascript">
     function deleteExam(value) {
       swal({
@@ -124,3 +140,13 @@
     }
   </script>
 @endpush
+
+@push('scripts')
+    <script>
+    function refreshTable() {
+      questions_table.draw();
+    }
+    </script>
+@endpush
+
+@include('admin.question.modalUpdate')

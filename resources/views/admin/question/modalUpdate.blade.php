@@ -1,50 +1,88 @@
-<div class="modal fade" id="modal-update">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Peruabahan Data Soal Ujian</h4>
-      </div>
-      <form action="{{ route('admin.question.update.submit', ['id' => $question->id]) }}" method="POST" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        {{ method_field('PATCH') }}
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Pertanyaan</label>
-            <textarea class="form-control" rows="3" placeholder="Tulis ..." name="text" required>{{ $question->text }}</textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputFile">Gambar</label>
-            <input type="file" name="picture" accept="image/*">
-            <p class="help-block">Pilih gambar apabila ingin mengubah gambar.</p>
-          </div>
+@component('components.modal')
+    @slot('id')
+      question-modal-update
+    @endslot
 
-          @foreach ($answers as $answer)
-            <div class="form-group">
-              <label>Jawaban {{ $ch[$count++] }}</label>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <input type="radio" name="true" value="{{ $count }}"
-                  @if ($answer->true)
-                    checked
-                  @endif>
-                </span>
-                <input type="text" class="form-control" name="answer_text[]" required value="{{ $answer->text }}">
-                <input type="hidden" name="answer_id[]" value="{{ $answer->id }}">
-              </div>
-            </div>
-          @endforeach
+    @slot('title')
+        Ubah Pertanyaan
+    @endslot
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
-      </form>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-  <!-- /.modal -->
+    <form action="{{ route('admin.question.update.submit') }}" method="POST" enctype="multipart/form-data">
+      {{ csrf_field() }}
+      {{ method_field('PATCH') }}
+      <span></span>
+    </form>
+
+    @slot('button')
+    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</button>
+    <button type="button" class="btn btn-primary btn-sm pull-right">Simpan</button>
+    @endslot
+@endcomponent
+
+@push('scripts')
+  <script type="text/javascript">
+    function updateQuestion(id) {
+      $.ajax({
+        type: "GET",
+        url: '{{ route('admin.question.update') }}',
+        data: {id:id},
+        success: function(data) {
+          $("#question-modal-update form span").html(data);
+          $('#question-modal-update').modal('show');
+
+          $('#question-modal-update').find('input[type="radio"]').iCheck({        
+            radioClass: 'iradio_flat-green'
+          });
+          
+          CKEDITOR.replace('text-editor-update', {language: 'id'});
+
+          $("#question-modal-update .btn-danger").click(function () {
+            deleteQuestion(id)
+          });
+
+          $("#question-modal-update .btn-primary").click(function () {
+            $(this).parent().parent().find('form').submit();            
+          });          
+        },
+
+      });
+    }
+  </script>
+@endpush
+
+@push('scripts')  
+  <script type="text/javascript">
+    function deleteQuestion(id) {
+      swal({
+        title: 'Apakah?',
+        text: "Anda yakin ingin menghapus soal ujian ini ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Tidak'
+      }).then((result) => {
+        if (result.value) {
+          $('#question-modal-update').modal('hide') &&
+            $.post("{{ route('admin.question.delete') }}", {
+              id: id,
+              _token: '{{ csrf_token() }}',
+              _method: 'DELETE'
+            }, function () {
+              refreshTable();
+            }) &&
+            swal({
+              title: 'Berhasil!',
+              text: 'Soal ujian berhasil dihapus.',
+              type: 'success',
+              timer: 1500,
+              onOpen: () => {
+                swal.showLoading()
+              }
+            })
+        }
+      })
+    }
+  </script>
+@endpush
