@@ -57,3 +57,8 @@ mix.styles([
 mix.scripts([
         'vendor/bower_components/admin-lte/plugins/iCheck/icheck.min.js'        
 ], jsPath + 'icheck.js');
+
+// CK-Editor Plugin JS
+mix.scripts([
+        'vendor/bower_components/admin-lte/bower_components/ckeditor/ckeditor.js'        
+], jsPath + 'ckeditor/ckeditor.js');

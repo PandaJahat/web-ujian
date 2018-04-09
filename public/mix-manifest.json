@@ -6,5 +6,6 @@
     "/css/plugin/datatables.css": "/css/plugin/datatables.css",
     "/js/plugin/datatables.js": "/js/plugin/datatables.js",
     "/css/plugin/icheck/icheck.css": "/css/plugin/icheck/icheck.css",
-    "/js/plugin/icheck.js": "/js/plugin/icheck.js"
+    "/js/plugin/icheck.js": "/js/plugin/icheck.js",
+    "/js/plugin/ckeditor/ckeditor.js": "/js/plugin/ckeditor/ckeditor.js"
 }

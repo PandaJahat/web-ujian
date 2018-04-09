@@ -1,14 +1,35 @@
 
-Todo:
+ToDo:
   Admin:
+    ☐ Design layout dashboard @low 
     Class:
-      ☐ Ganti kata 'Kelas' dengan 'Ruang' @high
+      ✔ Ganti kata 'Kelas' dengan 'Ruang' @high @done(18-04-07 00:04)
+      Add User:
+        ☐ Lengkapi form biodata peserta sesuai tabel 'userprofiles' (Program Studi 1 & 2, dsb) @high 
+        ☐ Lengkapi fungsi simpan dan update @high 
     Exam:
-      ☐ Tambah kolom 'Batas Nilai Kelulusan' (Base Score) ke tabel exam @critical 
-      ☐ Input field (Base Score) pada form create dan form update @critical 
-      ☐ Tambahkan code simpan base score pada fungsi Insert dan Update pada ExamController @critical 
+      ✔ Tambah kolom 'Batas Nilai Kelulusan' (Base Score) ke tabel exam @critical @done(18-04-06 23:55)
+      ✔ Input field (Base Score) pada form create dan form update @critical @done(18-04-06 23:56)
+      ✔ Tambahkan code simpan base score pada fungsi Insert dan Update pada ExamController @critical @done(18-04-06 23:56)
+    Question:
+      ☐ Edit question saat berada di halaman detail ujian @high @critical 
+      ✘ Delete question saat berada di halaman detail ujian @low @cancelled(18-04-07 00:14)
     Faculty:
       ☐ Form create yang berisi nama fakultas dan kode (optional) (semua: text) @low 
     Program:
       ☐ Form create yang berisi nama program (text), fakultas (dropdown), dan kode (optional) (text) @low 
-  
+
+  User:
+    ☐ Design kartu ujian peserta @low 
+    Exam: 
+      ☐ Soal Muncul dengan pilihan jawaban @low 
+      ☐ jawaban tersimpan saat memilih @low @critical 
+      ☐ Hasil score ujian muncul setelah ujian selesai @low 
+    Profile:
+      ☐ Menampilkan biodata peserta
+      ☐ Button print kartu ujian peserta
+
+ToFix:
+  Admin:
+    Class:
+      ☐ Jumlah ujian pada halaman detail ruang (kelas) @low 
