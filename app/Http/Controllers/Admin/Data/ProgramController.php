@@ -17,13 +17,14 @@ class ProgramController extends Controller
     public function data()
     {
         return Datatables::of(Program::query())
-        ->addColumn('update', function ($program)
-        {
+        ->addColumn('update', function($program) {
             return '<button class="btn btn-warning btn-xs btn-block" onclick="updateForm(\''.$program->id.'\')"><i class="glyphicon glyphicon-pencil"></i> Ubah</button>';
         })
-        ->addColumn('delete', function ($program)
-        {
+        ->addColumn('delete', function($program) {
             return '<button class="btn btn-danger btn-xs btn-block" onclick="deleteConfirm(\''.$program->id.'\')"><i class="glyphicon glyphicon-trash"></i> Hapus</button>';
+        })
+        ->addColumn('faculty', function($program){
+            return $program->faculty->name;
         })
         ->rawColumns(['update', 'delete'])
         ->make(true);

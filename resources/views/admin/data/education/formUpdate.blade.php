@@ -12,7 +12,7 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Pendidikan</label>
-            <input class="form-control" type="text" name="education_level" value="{{ $education->education_level }}">
+            <input class="form-control" type="text" name="level" value="{{ $education->level }}">
           </div>
         </div>
         <div class="modal-footer">

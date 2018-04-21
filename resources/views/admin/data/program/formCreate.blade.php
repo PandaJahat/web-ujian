@@ -18,10 +18,10 @@
 
 <div class="form-group">
     <label for="exampleInputEmail1">Kode jurusan</label>
-    <input class="form-control" type="text" name="program_code" value="{{ old('program_code') }}">
+    <input class="form-control" type="text" name="code" value="{{ old('code') }}">
 </div>
 
 <div class="form-group">
     <label for="exampleInputEmail1">Nama jurusan</label>
-    <input class="form-control" type="text" name="program_name" value="{{ old('program_name') }}">
+    <input class="form-control" type="text" name="name" value="{{ old('name') }}">
 </div>

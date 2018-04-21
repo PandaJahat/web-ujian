@@ -8,6 +8,7 @@
           <th>No.</th>
           <th>Kode Jurusan</th>
           <th>Nama Jurusan</th>
+          <th>Fakultas</th>
           <th>Dibuat</th>
           <th>Diubah</th>
           <th> </th>
@@ -28,11 +29,12 @@
           processing: true,
           serverSide: true,
           ajax: '{!! route('admin.data.program.data') !!}',
-          order: [[ 3, 'desc' ]],
+          order: [[ 4, 'desc' ]],
           columns: [
               { data: 'id', name: 'id' },
-              { data: 'program_code', name: 'program_code' },
-              { data: 'program_name', name: 'program_name' },
+              { data: 'code', name: 'code' },
+              { data: 'name', name: 'name' },
+              { data: 'faculty', name: 'faculty_id' },
               { data: 'created_at', name: 'created_at' },
               { data: 'updated_at', name: 'updated_at' },
               { data: 'update', name: 'update', orderable: false, searchable: false },

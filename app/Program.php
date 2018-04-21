@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     protected $fillable = [
-        'program_code',
-        'program_name',
-        'program_active',
+        'code',
+        'name',
+        'active',
     ];
+
+    public function faculty()
+    {
+        return $this->belongsTo('App\Faculty');
+    }
 }

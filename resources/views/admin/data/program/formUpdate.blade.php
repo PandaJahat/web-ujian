@@ -6,10 +6,10 @@
 
 <div class="form-group">
     <label for="exampleInputEmail1">Kode jurusan</label>
-    <input class="form-control" type="text" name="program_code" value="{{ $program->program_code }}">
+    <input class="form-control" type="text" name="code" value="{{ $program->code }}">
 </div>
 
 <div class="form-group">
     <label for="exampleInputEmail1">Nama jurusan</label>
-    <input class="form-control" type="text" name="program_name" value="{{ $program->program_name }}">
+    <input class="form-control" type="text" name="name" value="{{ $program->name }}">
 </div>

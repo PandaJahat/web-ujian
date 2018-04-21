@@ -29,8 +29,8 @@
           order: [[ 4, 'desc' ]],
           columns: [
               { data: 'DT_Row_Index', name: 'DT_Row_Index', orderable: false, searchable: false },
-              { data: 'education_level', name: 'education_level' },
-              { data: 'status', name: 'education_active' },
+              { data: 'level', name: 'level' },
+              { data: 'status', name: 'active' },
               { data: 'created_at', name: 'created_at' },
               { data: 'inactive', name: 'inactive', orderable: false, searchable: false },
               { data: 'update', name: 'update', orderable: false, searchable: false },

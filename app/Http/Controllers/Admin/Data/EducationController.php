@@ -17,7 +17,7 @@ class EducationController extends Controller
       $education = Education::query();
       return Datatables::of($education)
       ->addColumn('status', function ($education) {
-        return $education->education_active?
+        return $education->active?
         '<span class="label label-success">Aktif</span>'
         :
         '<span class="label label-danger">Nonaktif</span>';
@@ -26,7 +26,7 @@ class EducationController extends Controller
         return '<button id="'.$education->id.'" onclick="modalUpdate(id)" class="btn btn-block btn-warning btn-xs"><i class="fa fa-pencil-square-o margin-r-5"></i>Ubah</button>';
       })
       ->addColumn('inactive', function ($education) {
-        return $education->education_active?
+        return $education->active?
         '<button id="'.$education->id.'" onclick="inactive(id)" class="btn btn-block btn-danger btn-xs"><i class="fa fa-times margin-r-5"></i>Nonaktifkan</button>'
         :
         '<button id="'.$education->id.'" onclick="active(id)" class="btn btn-block btn-success btn-xs"><i class="fa fa-check margin-r-5"></i>Aktifkan</button>';
@@ -56,7 +56,7 @@ class EducationController extends Controller
     {
       $education = Education::find($request->id);
 
-      $education->education_active = $request->status;
+      $education->active = $request->status;
 
       $education->save();
     }
