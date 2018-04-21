@@ -17,11 +17,12 @@ class CreateUserprofilesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('education_id')->unsigned();
-            $table->string('institute');
-            $table->string('photo')->nullable();
             $table->string('place_of_birth');
             $table->date('date_of_birth');
-
+            $table->string('school_name')->nullable();
+            $table->string('school_class')->nullable();            
+            $table->text('address')->nullable();
+            $table->string('photo')->nullable();
 
             $table->foreign('user_id')
                   ->references('id')->on('users')

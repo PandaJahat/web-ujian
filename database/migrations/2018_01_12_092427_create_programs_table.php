@@ -15,10 +15,9 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('program_code')->unique();
-            $table->string('program_name');
-            $table->boolean('program_active')->default(1);
-            $table->timestamps();
+            $table->string('code')->unique()->nullable();
+            $table->string('name');
+            $table->boolean('active')->default(1);            
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationTable extends Migration
+class AddFacultyToProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateEducationTable extends Migration
      */
     public function up()
     {
-        Schema::create('education', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('level');
-            $table->boolean('active')->default(1);
+        Schema::table('programs', function (Blueprint $table) {
+            $table->integer('faculty_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('faculty_id')
+                  ->references('id')->on('faculties');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateEducationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('educations');
+        //
     }
 }

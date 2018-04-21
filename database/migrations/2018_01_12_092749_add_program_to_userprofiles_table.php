@@ -14,11 +14,12 @@ class AddProgramToUserprofilesTable extends Migration
     public function up()
     {
         Schema::table('userprofiles', function (Blueprint $table) {
-            $table->integer('program_id')->unsigned();
+            $table->integer('program_id_first')->unsigned();
+            $table->integer('program_id_second')->unsigned();
             $table->timestamps();
 
-            $table->foreign('program_id')
-                  ->references('id')->on('programs');
+            $table->foreign('program_id_first')->references('id')->on('programs');
+            $table->foreign('program_id_second')->references('id')->on('programs');
         });
     }
 
