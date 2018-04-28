@@ -10,6 +10,7 @@ class Program extends Model
         'code',
         'name',
         'active',
+        'faculty_id'
     ];
 
     public function faculty()

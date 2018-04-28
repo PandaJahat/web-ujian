@@ -50,9 +50,8 @@
 
 <script>
     function updateForm(id) {
-        $.post('{{ route('admin.data.program.update') }}', {
-                id: id,
-                _token: '{{ csrf_token() }}',
+        $.get('{{ route('admin.data.program.update') }}', {
+                id: id                
             },
             function (result) {
                 $('#modal').html(result);

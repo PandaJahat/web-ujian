@@ -25,3 +25,20 @@
     <label for="exampleInputEmail1">Nama jurusan</label>
     <input class="form-control" type="text" name="name" value="{{ old('name') }}">
 </div>
+
+<div class="form-group">
+    <label>Fakultas</label>
+    <select class="form-control" name="faculty_id">
+        
+    </select>
+</div>
+
+@push('scripts')
+    <script>
+        $.get("{{ route('admin.data.program.faculty') }}", function (result) {            
+            $.each(result, function (indexInArray, valueOfElement) { 
+                $("#modal-create").find('select[name=faculty_id]').append('<option value="'+valueOfElement.id+'">'+valueOfElement.name+'</option>');                 
+            });
+        });
+    </script>
+@endpush

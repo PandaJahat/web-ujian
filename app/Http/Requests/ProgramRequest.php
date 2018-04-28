@@ -39,8 +39,9 @@ class ProgramRequest extends FormRequest
             {
                 $this->errorBag = 'create';
                 return [
-                    'program_code' => 'required|unique:programs,program_code',
-                    'program_name' => 'required'
+                    'code' => 'required|unique:programs,code',
+                    'name' => 'required',
+                    'faculty_id' => 'required'
                 ];
             }
             case 'PUT':
@@ -48,8 +49,9 @@ class ProgramRequest extends FormRequest
             {   
                 $this->errorBag = 'update';
                 return [
-                    'program_code' => 'required|unique:programs,program_code,'.$this->id,
-                    'program_name' => 'required'
+                    'code' => 'required|unique:programs,code,'.$this->id,
+                    'name' => 'required',
+                    'faculty_id' => 'required'
                 ];
             }
             default:break;
@@ -64,9 +66,10 @@ class ProgramRequest extends FormRequest
     public function messages()
     {
         return [
-            'program_code.required' => 'Kode jurusan wajib diisi.',
-            'program_code.unique' => 'Kode jurusan sudah digunakan, silahkan gunakan kode jurusan lain.',            
-            'program_name.required' => 'Nama jurusan wajib diisi.'            
+            'code.required' => 'Kode jurusan wajib diisi.',
+            'code.unique' => 'Kode jurusan sudah digunakan, silahkan gunakan kode jurusan lain.',            
+            'name.required' => 'Nama jurusan wajib diisi.',
+            'faculty_id.required' => 'Fakultas wajib dipilih.'
         ];
     }
 }

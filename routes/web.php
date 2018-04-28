@@ -151,9 +151,11 @@ Route::prefix('admin')->group(function() {
 
             Route::post('/create', 'ProgramController@create')->name('admin.data.program.create.submit');
 
-            Route::post('/update', 'ProgramController@updateForm')->name('admin.data.program.update');
+            Route::get('/update', 'ProgramController@updateForm')->name('admin.data.program.update');
             Route::patch('/update', 'ProgramController@update')->name('admin.data.program.update.submit');
             Route::delete('/delete', 'ProgramController@delete')->name('admin.data.program.delete');
+
+            Route::get('/faculty/list', 'ProgramController@faculty')->name('admin.data.program.faculty');
           });
 
         });

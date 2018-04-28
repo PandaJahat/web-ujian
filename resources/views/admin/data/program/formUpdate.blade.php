@@ -13,3 +13,16 @@
     <label for="exampleInputEmail1">Nama jurusan</label>
     <input class="form-control" type="text" name="name" value="{{ $program->name }}">
 </div>
+
+<div class="form-group">
+    <label>Fakultas</label>
+    <select class="form-control" name="faculty_id">
+        @foreach ($faculties as $faculty)
+        <option value="{{ $faculty->id }}"
+            @if ($faculty->id == $program->faculty_id)
+                selected
+            @endif    
+        >{{ $faculty->name }}</option>
+        @endforeach
+    </select>
+</div>

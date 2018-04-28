@@ -8,6 +8,7 @@ use Yajra\Datatables\Datatables;
 
 # Model
 use App\Program;
+use App\Faculty;
 
 # Request
 use App\Http\Requests\ProgramRequest;
@@ -41,7 +42,8 @@ class ProgramController extends Controller
     public function updateForm(Request $request)
     {
         return view('admin.data.program.modalUpdate', [
-            'program' => Program::find($request->id)
+            'program' => Program::find($request->id),
+            'faculties' => $this->faculty(),
         ]);
     }
 
@@ -57,5 +59,10 @@ class ProgramController extends Controller
         $program = Program::find($request->id);
         $program->delete();
         return 'ok';
+    }
+
+    public function faculty()
+    {
+        return Faculty::all();
     }
 }
