@@ -15,4 +15,4 @@ yarn-error.log
 /public/img/questions/*
 
 # bower | bower install adminlte
-/resources/assets/bower
+/bower_components
