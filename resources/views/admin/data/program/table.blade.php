@@ -1,7 +1,3 @@
-@push('links')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/plugin/datatables.css') }}">
-@endpush
-
 <table class="table table-bordered table-hover dataTable" id="programs-table">
   <thead>
       <tr>
@@ -16,11 +12,6 @@
       </tr>
   </thead>
 </table>
-
-@push('scripts')
-<script type="text/javascript" charset="utf8" src="{{ asset('js/plugin/datatables.js') }}"></script>
-<script src="https://unpkg.com/sweetalert2@7.1.3/dist/sweetalert2.all.js"></script>
-@endpush
 
 @push('scripts')
   <script>

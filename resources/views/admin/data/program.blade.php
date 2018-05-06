@@ -14,6 +14,9 @@
   <li class="active">Daftar</li>
 @endsection
 
+@include('plugins.datatables')
+@include('plugins.sweetalert2')
+
 @section('content')
 <div class="box">
   <div class="box-header with-border">

@@ -15,6 +15,8 @@
   <li class="active">Pilih Soal</li>
 @endsection
 
+@include('plugins.datatables')
+
 @section('content')
   <!-- Default box -->
   <div class="box box-primary">

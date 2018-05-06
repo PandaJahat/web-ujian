@@ -10,6 +10,8 @@
   <li class="active">Daftar</li>
 @endsection
 
+@include('plugins.datatables')
+
 @section('pagetitle')
   Pendidikan<small>Daftar Pendidikan Terakhir</small>
 @endsection

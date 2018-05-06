@@ -1,7 +1,3 @@
-@push('links')
-  <link href="{{ asset('css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
-@endpush
-
 @if ($errors->examPost->any())
   <div class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -63,19 +59,17 @@
 </div>
 
 @push('scripts')
-  <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
-@endpush
-
-@push('scripts')
 <script type="text/javascript">
     $("#start_datetime").datetimepicker({
       format: 'yyyy-mm-dd hh:ii',
-      startDate: new Date()
+      startDate: new Date(),
+      autoclose: true
       })
     
     $("#end_datetime").datetimepicker({
       format: 'yyyy-mm-dd hh:ii',
-      startDate: new Date()
+      startDate: new Date(),
+      autoclose: true
       })
 
     $("#start_datetime").change(function () {

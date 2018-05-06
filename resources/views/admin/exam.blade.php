@@ -13,6 +13,8 @@
   <li class="active">Daftar</li>
 @endsection
 
+@include('plugins.datatables')
+
 @section('content')
   <div class="box box-primary">
     <div class="box-header with-border">

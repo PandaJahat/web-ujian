@@ -13,6 +13,8 @@ Penambahan Ujian
   <li class="active">Tambah</li>
 @endsection
 
+@include('plugins.datetimepicker')
+
 @section('content')
   <div class="box">
     <div class="box-header with-border">

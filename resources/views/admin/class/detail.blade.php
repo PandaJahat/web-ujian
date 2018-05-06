@@ -13,14 +13,8 @@ Ruang: {{ $class->name }} <small>Detail lengkap ruang</small>
   <li class="active">Detail</li>
 @endsection
 
-@push('links')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/plugin/datatables.css') }}">
-@endpush
-
-@push('scripts')
-<script type="text/javascript" charset="utf8" src="{{ asset('js/plugin/datatables.js') }}"></script>
-<script src="https://unpkg.com/sweetalert2@7.1.3/dist/sweetalert2.all.js"></script>
-@endpush
+@include('plugins.datatables')
+@include('plugins.sweetalert2')
 
 @section('content')
 <div class="row">

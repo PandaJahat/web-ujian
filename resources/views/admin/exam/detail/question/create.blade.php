@@ -10,7 +10,7 @@
         <i class="fa fa-file-text margin-r-5"></i>Soal Baru
     @endslot
 
-    <form action="{{ route('admin.exam.question.create.submit', $exam) }}" method="post">
+    <form action="{{ route('admin.exam.question.create.submit', $exam) }}" method="post" enctype="multipart/form-data"
         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
         @include('admin.question.formCreate')
     </form>

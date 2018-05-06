@@ -1,7 +1,3 @@
-@push('links')
-  <link href="{{ asset('css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
-@endpush
-
 @if ($errors->examPatch->any())
   <div class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -64,12 +60,32 @@
 </div>
 
 @push('scripts')
-  <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+<script type="text/javascript">
+     $("#start_datetime").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii',
+      startDate: new Date(),
+      autoclose: true
+      })
+    
+    $("#end_datetime").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii',
+      startDate: new Date(),
+      autoclose: true
+      })
+
+    $("#start_datetime").change(function () {
+      $("#end_datetime").datetimepicker('setStartDate', this.value)      
+    })
+</script>
 @endpush
 
 @push('scripts')
-<script type="text/javascript">
-    $("#start_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-    $("#end_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-</script>
+    <script>
+      $(function () {
+        $('input[name=base_score]').bind('keypress', function (e) {
+          return !(e.which != 8 && e.which != 0 &&
+            (e.which < 48 || e.which > 57) && e.which != 46);
+        })
+      })
+    </script>
 @endpush

@@ -1,7 +1,3 @@
-@push('links')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/plugin/datatables.css') }}">
-@endpush
-
 <table class="table table-bordered table-hover dataTable" id="classes-table">
   <thead>
       <tr>
@@ -15,10 +11,6 @@
       </tr>
   </thead>
 </table>
-
-@push('scripts')
-<script type="text/javascript" charset="utf8" src="{{ asset('js/plugin/datatables.js') }}"></script>
-@endpush
 
 @push('scripts')
   <script>

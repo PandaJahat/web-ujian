@@ -14,6 +14,8 @@ Perubahan Ujian
   <li class="active">Ubah</li>
 @endsection
 
+@include('plugins.datetimepicker')
+
 @section('content')
   <div class="box">
     <div class="box-header with-border">
